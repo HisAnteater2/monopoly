@@ -8,6 +8,8 @@ db.sqlite3
 userdata
 .DS_Store
 settings.py
+monopoly/static/3d_assets/
+monopoly/static/sound/
 
 # Created by .ignore support plugin (hsz.mobi)
 ### Python template
