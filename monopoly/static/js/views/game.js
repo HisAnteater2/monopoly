@@ -69,7 +69,7 @@ class GameView {
     }
 
     initWebSocket() {
-        this.socket = new WebSocket(`ws://${window.location.host}/game/${this.hostName}`);
+        this.socket = new ReconnectingWebSocket(`ws://${window.location.host}/game/${this.hostName}`);
 
         this.socket.onmessage = (event) => {
             const message = JSON.parse(event.data);
