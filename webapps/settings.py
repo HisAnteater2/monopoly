@@ -58,7 +58,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    #'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -88,6 +88,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'webapps.wsgi.application'
+ASGI_APPLICATION = 'webapps.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
