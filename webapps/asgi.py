@@ -1,8 +1,8 @@
 import os
 import django
-from django.core.asgi import get_asgi_application
+from django.core import asgi
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'webapps.settings')
 django.setup()
 
-application = get_asgi_application()
+application = asgi.get_asgi_application()
