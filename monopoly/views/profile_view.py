@@ -6,7 +6,7 @@ from django.template import Template, RequestContext
 from django.views import View
 
 from monopoly.forms.profile_form import ProfileForm
-from monopoly.models import Profile
+from monopoly.models.profile import Profile
 
 
 class ProfileView(View):
@@ -59,7 +59,13 @@ class ProfileView(View):
                 self.profile_info.avatar = avatar
             self.profile_info.save()
         else:
-            self.profile_info = Profile(user=request.user, bio=bio, avatar=avatar)
+            self.profile_info = Profile.objects.create(user=self.profile_user, bio=bio, avatar=avatar)
+            '''self.profile_info = Profile()
+            print(self.profile_info)
+            self.profile_info.user = self.profile_user
+            self.profile_info.avatar = avatar
+            self.profile_info.bio = bio
+            self.profile_info.save()'''
             form = ProfileForm(request.POST, request.FILES, instance=self.profile_info)
 
             if form.is_valid():

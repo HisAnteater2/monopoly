@@ -3,7 +3,7 @@ from django.core import serializers
 from django.contrib.auth.decorators import login_required
 from channels.auth import http_session_user, channel_session_user, \
     channel_session_user_from_http
-from monopoly.models import Profile
+from monopoly.models.profile import Profile
 from django.contrib.auth.models import User
 from monopoly.core.game import *
 
