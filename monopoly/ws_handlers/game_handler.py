@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from monopoly.models import Profile
+from monopoly.models.profile import Profile
 from monopoly.core.game import *
 from monopoly.ws_handlers.modal_title_enum import *
 from channels import Group
@@ -151,6 +151,7 @@ def handle_end_game(hostname, games):
     Group(hostname).send({
         "text": build_game_end_msg(curr_player, all_asset)
     })
+    del game
     del decisions[hostname]
 
 

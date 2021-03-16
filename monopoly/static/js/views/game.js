@@ -30,11 +30,11 @@ class GameView {
             this.$exitControl.addEventListener("click", this.endGame.bind(this));
         }
 
-        /*this.$chatMessageToSend.addEventListener("keydown", e => {
+        this.$chatMessageToSend.addEventListener("keydown", e => {
             const key = e.which || e.keyCode;
             // Detect Enter pressed
             if (key === 13) this.sendMessage();
-        });*/
+        });
 
         this.diceMessage = document.getElementById("dice-message").innerHTML;
 
@@ -505,12 +505,13 @@ class GameView {
         }
         scoreboardTemplate += "</div>";
         this.$modalCardContent.classList.add("scoreboard-bg");
-        this.showModal(null, "Scoreboard", "Good Game!", scoreboardTemplate, [{
-            text: "Start a New Game",
+        this.showModal(null, "Scoreboard", "Good Game!", scoreboardTemplate,
+        [{
+            text: "Exit",
             callback: () => {
-                window.location = `http://${window.location.host}/monopoly/join`;
+                window.location = `http://${window.location.host}/monopoly/`;
             }
-        }]);
+            }]);
     }
 
     switchAudio() {

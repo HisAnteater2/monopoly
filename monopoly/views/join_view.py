@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 
-from monopoly.models import Profile
-
+from monopoly.models.profile import Profile
 
 class JoinView(View):
     template_name = 'join_view.html'

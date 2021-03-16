@@ -67,16 +67,16 @@ class JoinView {
             this.addFriend(message.data);
 
             if (this.friends.length > 1) {
-                /*if (this.hostName !== this.userName) {
+                if (this.hostName !== this.userName) {
                     this.$startGame.innerText = "Waiting for host to start the game...";
                 } else {
                     console.log(73);
                     this.$startGame.disabled = false;
                     //this.startGame();
                     this.$startGame.innerText = "Start Game";
-                }*/
-                this.startGame();
-                this.navigateToGame();
+                }
+                //this.startGame();
+                //this.navigateToGame();
             }
         } else if (message.action === "start") {
             this.navigateToGame();
@@ -85,7 +85,7 @@ class JoinView {
             this.$startGame.innerText = "Navigating back... Create your own game!";
             this.$newGameNotice.innerText = "2 Players Max Per Game!";
             this.$newGameNotice.style.color = "#F44336";
-            setTimeout(this.navigateBack, 2000);
+            setTimeout(this.initWebSocket, 2000);
         }
     }
 
