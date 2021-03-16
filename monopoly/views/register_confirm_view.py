@@ -25,6 +25,6 @@ class ConfirmRegistrationView(View):
         # Otherwise token was valid, activate the user.
         user.is_active = True
         user.save()
-        login(request, user)
+        login(request, user, backend='django.contrib.auth.backends.ModelBackend')
 
         return redirect("/monopoly/join")
