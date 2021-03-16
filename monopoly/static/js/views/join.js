@@ -54,7 +54,7 @@ class JoinView {
     }
 
     initWebSocket() {
-        this.socket = new ReconnectingWebSocket(`ws://${window.location.host}/join/${this.hostName}`);
+        this.socket = new WebSocket(`ws://${window.location.host}/join/${this.hostName}`);
 
         this.socket.onmessage = (event) => {
             const message = JSON.parse(event.data);
