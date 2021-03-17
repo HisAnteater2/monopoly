@@ -6,7 +6,7 @@
 	var currentInitiator;
 	var currentRecipient;
 
-	// Define event handlers:
+	/*// Define event handlers:
 
 	// var tradeMoneyOnKeyDown = function (e) {
 	// 	var key = 0;
@@ -82,7 +82,7 @@
 	// document.getElementById("trade-leftp-money").onfocus = tradeMoneyOnFocus;
 	// document.getElementById("trade-rightp-money").onfocus = tradeMoneyOnFocus;
 	// document.getElementById("trade-leftp-money").onchange = tradeMoneyOnChange;
-	// document.getElementById("trade-rightp-money").onchange = tradeMoneyOnChange;
+	// document.getElementById("trade-rightp-money").onchange = tradeMoneyOnChange; */
 
 	var resetTrade = function(initiator, recipient, allowRecipientToBeChanged) {
 		var currentSquare;
@@ -218,6 +218,7 @@
 			}
 		}
 
+		/*
 		// if (initiator.communityChestJailCard) {
 		// 	currentTableRow = initiatorSideTable.appendChild(document.createElement("tr"));
 		// 	currentTableRow.onclick = tableRowOnClick;
@@ -300,7 +301,7 @@
 		// 	currentTableCell.className = "propertycellname";
 
 		// 	currentTableCell.textContent = "Get Out of Jail Free Card";
-		// }
+		// }*/
 
 		if (initiatorSideTable.lastChild) {
 			initiatorProperty.appendChild(initiatorSideTable);
@@ -373,6 +374,7 @@
 			}
 		}
 
+		/*
 		// if (document.getElementById("tradeleftcheckbox40") && document.getElementById("tradeleftcheckbox40").checked) {
 		// 	communityChestJailCard = 1;
 		// } else if (document.getElementById("traderightcheckbox40") && document.getElementById("traderightcheckbox40").checked) {
@@ -387,7 +389,7 @@
 		// 	chanceJailCard = -1;
 		// } else {
 		// 	chanceJailCard = 0;
-		// }
+		// }*/
 
 		money = parseInt(document.getElementById("trade-leftp-money").value, 10) || 0;
 		money -= parseInt(document.getElementById("trade-rightp-money").value, 10) || 0;
@@ -416,7 +418,7 @@
 				}
 			}
 		}
-
+/*
 		// if (document.getElementById("tradeleftcheckbox40")) {
 		// 	if (tradeObj.getCommunityChestJailCard() === 1) {
 		// 		document.getElementById("tradeleftcheckbox40").checked = true;
@@ -448,7 +450,7 @@
 		// 		document.getElementById("traderightcheckbox41").checked = false;
 		// 	}
 		// }
-
+*/
 		if (tradeObj.getMoney() > 0) {
 			document.getElementById("trade-leftp-money").value = tradeObj.getMoney() + "";
 		} else {

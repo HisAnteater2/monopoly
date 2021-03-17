@@ -66,7 +66,7 @@ class JoinView {
         if (message.action === "join") {
             this.addFriend(message.data);
 
-            if (this.friends.length > 1) {
+            if (this.friends.length > 1 && this.friends.length <= 6) {
                 if (this.hostName !== this.userName) {
                     this.$startGame.innerText = "Waiting for host to start the game...";
                 } else {
@@ -79,7 +79,7 @@ class JoinView {
         } else if (message.action === "fail_join") {
             this.$startGame.disabled = true;
             this.$startGame.innerText = "Navigating back... Create your own game!";
-            this.$newGameNotice.innerText = "4 Players Max Per Game!";
+            this.$newGameNotice.innerText = "6 Players Max Per Game!";
             this.$newGameNotice.style.color = "#F44336";
             setTimeout(this.navigateBack, 2000);
         }

@@ -340,13 +340,10 @@ class GameView {
     }
 
     handleTrade = function(message){
-    document.getElementById('trade').style.display = 'inherit';
-    document.getElementsByClassName('card-content-container')[0].style.display = 'none';
-
+        document.getElementById('trade').style.display = 'inherit';
+        document.getElementsByClassName('card-content-container')[0].style.display = 'none';
+    }
     
-   
-
-}
     async handleRollRes(message) {
         let currPlayer = message.curr_player;
         let nextPlayer = message.next_player;
