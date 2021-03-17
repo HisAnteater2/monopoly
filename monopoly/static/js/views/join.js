@@ -4,7 +4,7 @@
  *WebSocket Interface
  */
 
-const receivedMessage = {
+/*const receivedMessage = {
     action: "join" | "start",
     data: [{
         id: "user_id",
@@ -15,7 +15,7 @@ const receivedMessage = {
 
 const sentMessage = {
     action: "start"
-};
+};*/
 
 class JoinView {
     constructor() {
@@ -70,22 +70,18 @@ class JoinView {
                 if (this.hostName !== this.userName) {
                     this.$startGame.innerText = "Waiting for host to start the game...";
                 } else {
-                    console.log(73);
                     this.$startGame.disabled = false;
-                    //this.startGame();
                     this.$startGame.innerText = "Start Game";
                 }
-                //this.startGame();
-                //this.navigateToGame();
             }
         } else if (message.action === "start") {
             this.navigateToGame();
         } else if (message.action === "fail_join") {
             this.$startGame.disabled = true;
             this.$startGame.innerText = "Navigating back... Create your own game!";
-            this.$newGameNotice.innerText = "2 Players Max Per Game!";
+            this.$newGameNotice.innerText = "4 Players Max Per Game!";
             this.$newGameNotice.style.color = "#F44336";
-            setTimeout(this.initWebSocket, 2000);
+            setTimeout(this.navigateBack, 2000);
         }
     }
 
