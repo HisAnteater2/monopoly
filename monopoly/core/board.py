@@ -14,9 +14,9 @@ class Board(object):
 
     def generate_lands(self):
         self._lands.append(Land(0, "Start", StartLand(START_REWARD)))
-        self._lands.append(Land(1, "Warner Hall", ConstructionLand(60)))
+        self._lands.append(Land(1, "Rotunda", ConstructionLand(60)))
         self._lands.append(Land(2, "Chance", ChanceLand()))
-        self._lands.append(Land(3, "UC", ConstructionLand(60)))
+        self._lands.append(Land(3, "Economics & Finance and Management Departments", ConstructionLand(60)))
         self._lands.append(Land(4, "Union Grill", Infra(150)))
         self._lands.append(Land(5, "AB route", Infra(200)))
         self._lands.append(Land(6, "College of Fine Art", ConstructionLand(
