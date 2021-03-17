@@ -143,6 +143,7 @@ def handle_roll(hostname, games, changehandlers):
 
 def handle_end_game(hostname, games):
     game = games[hostname]
+    print(game)
     players = game.get_players()
     all_asset = []
     curr_player = game.get_current_player().get_index()
@@ -151,8 +152,9 @@ def handle_end_game(hostname, games):
     Group(hostname).send({
         "text": build_game_end_msg(curr_player, all_asset)
     })
-    del game
-    del decisions[hostname]
+    del games[hostname]
+    del rooms[hostname]
+    
 
 
 def handle_confirm_decision(hostname, games):

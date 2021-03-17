@@ -97,12 +97,13 @@ def ws_message(message):
         handle_chat(hostname, msg)
     if action == "end_game":
         handle_end_game(hostname, games)
-        del games[hostname]
-        del rooms[hostname]
 
 
 # @login_required
 def ws_disconnect(message):
+    path = message.content['path']
+    fields = path.split('/')
+    hostname = fields[-1]
     Group('5').discard(message.reply_channel)
 
 
@@ -149,6 +150,9 @@ def add_player(room_name, player_name):
     if room_name not in rooms:
         rooms[room_name] = set()
         rooms[room_name].add(room_name)
+    
+    if player_name in rooms[room_name]:
+        return True
 
     if len(rooms[room_name]) >= 2:
         return False
