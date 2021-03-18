@@ -304,6 +304,24 @@ class Game(object):
         else:
             return None
 
+    def make_trade(self, receiver, net_money_given, prop_given, prop_recd):
+        giver = self.get_current_player()
+        if giver.get_money() >= net_money_given and receiver.get_money() >= -net_money_given:
+            for prop in prop_given:
+                if prop not in giver.get_properties():
+                    return False
+            for prop in prop_recd:
+                if prop not in receiver.get_properties():
+                    return False
+            for prop in prop_given:
+                giver.remove_property(prop)
+                prop.set_owner(receiver.get_index())
+                receiver.add_properties(prop)
+            for prop in prop_recd:
+                receiver.remove_property(prop)
+                prop.set_owner(giver.get_index())
+                giver.add_properties(prop)
+            
     # getters
     def get_player(self, index):
         return self._players[index]
